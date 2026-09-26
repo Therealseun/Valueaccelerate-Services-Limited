@@ -1,0 +1,19 @@
+# Render.com Blueprint — deploys the site + contact form backend
+# Go to https://dashboard.render.com → New → Blueprint → select this repo.
+# You'll be prompted to fill in the three secret values (they are NOT stored here).
+
+services:
+  - type: web
+    name: valueaccelerate
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: RESEND_API_KEY
+        sync: false          # paste your re_... key in the dashboard
+      - key: CONTACT_TO
+        sync: false          # e.g. valueaccelerateconsulting@gmail.com
+      - key: CONTACT_FROM
+        sync: false          # e.g. ValueAccelerate <onboarding@resend.dev>

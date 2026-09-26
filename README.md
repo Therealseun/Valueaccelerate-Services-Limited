@@ -47,13 +47,22 @@ to WhatsApp/phone instead of failing silently.
 
 ## Deploying
 
-Any Node 18+ host works (Railway, Render, Fly.io, a VPS…):
+> **GitHub Pages will NOT work** — it hosts static files only, so `server.js`
+> (and the contact form) cannot run there. Use any Node host:
+
+**Render (easiest — free tier):**
+1. Push this repo to GitHub (already done).
+2. dashboard.render.com → **New → Blueprint** → pick this repo.
+   The included `render.yaml` configures everything.
+3. When prompted, paste your secrets: `RESEND_API_KEY`, `CONTACT_TO`,
+   `CONTACT_FROM` (same values as your local `.env`).
+4. Deploy — you get a `https://your-app.onrender.com` URL with a working form.
+
+**Railway / Fly.io / any VPS:** any Node 18+ host works:
 
 ```bash
 npm start   # uses PORT from the environment when provided
 ```
 
 Set `RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM` in the host's environment
-variables (don't copy the `.env` file). For static-only hosting (e.g. bare
-Netlify without functions), the site still works visually but the form needs a
-server — keep `server.js` as the deploy target.
+variables (don't copy the `.env` file).
