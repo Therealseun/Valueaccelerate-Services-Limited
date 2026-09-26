@@ -1,0 +1,14 @@
+{
+  "name": "valueaccelerate-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ValueAccelerate Services Limited — website + contact form via Resend",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
